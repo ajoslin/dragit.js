@@ -1,0 +1,23 @@
+
+
+#mario {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 885px;
+	height: 1024px;
+	background-image: url("mario.jpg");
+}
+
+.circle {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 80px;
+	height: 80px;
+	-moz-border-radius: 40px;
+	-webkit-border-radius: 40px;
+	background-color: #C22828;
+	/*border: 2px solid red;
+	background-image: url("mario.jpg");*/
+}
