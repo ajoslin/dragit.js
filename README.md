@@ -8,6 +8,6 @@ Try demo.html.
 Usage
 -----
 
-Just call dragit on any jquery element and the following options
+Just call dragit on any jquery element and with the following options. Example:
 
-	image: 'path', imageWidth: w, imageHeight: h
+	$('body').dragit({image: 'path/to/img.jpg', imageWidth: 13, imageHeight: 37});
