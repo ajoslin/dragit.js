@@ -176,7 +176,6 @@
 				'height'                : 2*radius+'px',
 				'-moz-border-radius'    : radius+'px',
 				'-webkit-border-radius' : radius+'px',
-				'z-index'               : 2,
 			})
 			return $el
 		}
@@ -201,6 +200,7 @@
 		this.$element.css({
 			'background-image'      : 'url("'+options.image+'")',
 			'background-position'   : (-this.imagex)+'px'+' '+(-this.imagey)+'px',
+			'z-index'               : 2,
 		});
 
 
