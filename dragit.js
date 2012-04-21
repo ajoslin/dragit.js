@@ -21,7 +21,7 @@
 	// Create the plugin-global vars
 	var dragitStr = 'dragit';
 	var defaults = {
-		image       : 'mario.jpg',
+		image       : 'https://github.com/ajoslin/dragit.js/raw/master/mario.jpg',
 		imageWidth  : 885,
 		imageHeight : 1024,
 		radius      : 40,
@@ -31,15 +31,15 @@
 	function Dragit( element, options ) {
 		var self = this;
 
-		self.$element = $(element); //jquery element
+		self.$el = $(element); //jquery element
 
 		self.options = $.extend({}, defaults, options) ;
 
 		self._defaults = defaults;
 		self._name = dragitStr;
 
-		self.$element.append('<div class="dragit_img"></div>');
-		self.$image = self.$element.children().last();
+		self.$el.append('<div class="dragit_img"></div>');
+		self.$image = self.$el.children().last();
 
 		self.$image.css({
 			'position'         : 'absolute', 
@@ -122,11 +122,6 @@
 				mouseLink = false
 		}
 
-		console.log(left);
-		console.log(top);
-		console.log(this.mouse.x);
-		console.log(this.mouse.y);
-
 		//if still found no dragObj for mouse, create a new one
 		//and the current click inside the image bounds
 		if (mouseLink === false) {
@@ -135,7 +130,7 @@
 			this.mouse.x > left && this.mouse.x < right && 
 			this.mouse.y > top && this.mouse.y < bot)
 		{
-			mouseLink = new Dragger(this.$element, this.$image, this.mouse.x, this.mouse.y, this.options);
+			mouseLink = new Dragger(this.$el, this.$image, this.mouse.x, this.mouse.y, this.options);
 			this.dragObjs.push(mouseLink);
 		}
 
@@ -194,10 +189,10 @@
 
 		//create circle with background image at position
 		$parent.append('<div class="dragger"></div>');
-		this.$element = $parent.children().last();
+		this.$el = $parent.children().last();
 
-		setCircleCss(this.$element, this.radius);
-		this.$element.css({
+		setCircleCss(this.$el, this.radius);
+		this.$el.css({
 			'background-image'      : 'url("'+options.image+'")',
 			'background-position'   : (-this.imagex)+'px'+' '+(-this.imagey)+'px',
 			'z-index'               : 2,
@@ -212,7 +207,7 @@
 	{
 		this.x = x;
 		this.y = y;
-		this.$element.css({
+		this.$el.css({
 			left : this.x - this.radius,
 			top  : this.y - this.radius,
 		});
